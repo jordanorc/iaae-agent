@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY desenhos "http://www.semanticweb.org/ontologies/2013/1/desenhos#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2013/1/untitled-ontology-18#"
+     xml:base="http://www.semanticweb.org/ontologies/2013/1/untitled-ontology-18"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:desenhos="http://www.semanticweb.org/ontologies/2013/1/desenhos#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2013/1/desenhos"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#ePersonagem -->
+
+    <owl:ObjectProperty rdf:about="&desenhos;ePersonagem">
+        <owl:inverseOf rdf:resource="&desenhos;inEPersonagem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#inEPersonagem -->
+
+    <owl:ObjectProperty rdf:about="&desenhos;inEPersonagem">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#classificacao -->
+
+    <owl:DatatypeProperty rdf:about="&desenhos;classificacao"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#nome -->
+
+    <owl:DatatypeProperty rdf:about="&desenhos;nome"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Classificacao -->
+
+    <owl:Class rdf:about="&desenhos;Classificacao">
+        <rdfs:subClassOf rdf:resource="&desenhos;LooneyTunes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#LooneyTunes -->
+
+    <owl:Class rdf:about="&desenhos;LooneyTunes">
+        <rdfs:comment>Looner Tunes é uma série animada estadunidense de televisão que estreou a 3 de maio de 2011 no Cartoon Network.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Personagem -->
+
+    <owl:Class rdf:about="&desenhos;Personagem">
+        <rdfs:subClassOf rdf:resource="&desenhos;LooneyTunes"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#DiaboDaTasmania -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;DiaboDaTasmania">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome rdf:datatype="&xsd;string">Diabo da Tasmania</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Secundario"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Frajola -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Frajola">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Frajola</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Secundario"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Gguinho -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Gguinho">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Gaguinho</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Principal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Lola_Bunny -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Lola_Bunny">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Lola Bunny</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Principal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Patolino -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Patolino">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Patolino</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Principal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Pernalonga -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Pernalonga">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Pernalonga</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Principal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Piupiu -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Piupiu">
+        <rdf:type rdf:resource="&desenhos;Personagem"/>
+        <desenhos:nome>Piupiu</desenhos:nome>
+        <desenhos:ePersonagem rdf:resource="&desenhos;Secundario"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Principal -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Principal">
+        <rdf:type rdf:resource="&desenhos;Classificacao"/>
+        <desenhos:classificacao>é um personagem principal.</desenhos:classificacao>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2013/1/desenhos#Secundario -->
+
+    <owl:NamedIndividual rdf:about="&desenhos;Secundario">
+        <rdf:type rdf:resource="&desenhos;Classificacao"/>
+        <desenhos:classificacao>é um personagem secundário.</desenhos:classificacao>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
