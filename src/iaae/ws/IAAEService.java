@@ -1,4 +1,4 @@
-package iaae;
+package iaae.ws;
 
 import iaae.models.Discussion;
 import iaae.models.Thesis;
@@ -20,7 +20,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class GenerateThesisService {
+public class IAAEService {
 
 	public static String URL_TO_GENERATE = "http://localhost:8000/vle/discussion/to_generate/";
 	public static String URL_GENERATE = "http://localhost:8000/vle/discussion/generate/";

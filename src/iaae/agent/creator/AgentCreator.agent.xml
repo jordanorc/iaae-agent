@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <H3>The HelloWorld agent.</H3> It has the task to print out a welcome 
+	message. -->
+<agent xmlns="http://jadex.sourceforge.net/jadex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jadex.sourceforge.net/jadex
+	                    http://jadex.sourceforge.net/jadex-bdi-2.2.xsd"
+	name="AgentCreator" package="iaae.agent.creator">
+
+	<imports>
+		<import>java.net.URL</import>
+		<import>java.util.*</import>
+	</imports>
+
+	<!-- Conhecimento que o agente possui sobre si mesmo e sobre o ambiente. 
+		Podem ser representados por qualquer tipo de objeto Java. Podem ser removidos 
+		ou alterados pelos planos utilizando a interface beliefbase, herdados de 
+		uma capability através da utilização do sufixo ref, ou referenciados em expressões. -->
+	<beliefs>
+		<belief name="name" class="String" exported="true">
+			<fact>agent-creator</fact>
+		</belief>
+		
+		<belief name="interval" class="int" exported="true">
+			<fact>5000</fact>
+		</belief>
+
+		<belief name="settings" class="AgentCreatorSettings">
+			<fact>new AgentCreatorSettings()</fact>
+		</belief>
+
+		<beliefset name="discussions" class="java.util.List">
+			<facts>((List)$beliefbase.getBelief("settings").getFact().getService().getDiscussions())
+			</facts>
+		</beliefset>
+
+		<belief name="has_discussions" class="boolean" evaluationmode="push">
+			<fact language="jcl">
+				$beliefbase.discussions.length>0
+			</fact>
+		</belief>
+	</beliefs>
+
+	<!-- Representam os objetivos, motivações, do agente e que irão levar ao 
+		despoletar de ações. Podem ser de quatro tipos: 
+		- Perform goal: algo que 
+		precisa ser feito, mas não necessariamente um objetivo; 
+		- Archieve goal: 
+		representa um estado a atingir, não especificando o caminho para lá chegar; 
+		- Query goal: semelhante ao Archieve Goal, mas que pretende obter informação; 
+		- Maintain goal: pretende manter uma, ou mais propriedades sempre satisfeitas. -->
+
+	<goals>
+		<performgoal name="check" exclude="never" retrydelay="5000"/>
+
+		<!-- Goal for picking up a piece of waste, bringing it to some burner and 
+			going back. A new goal is created whenever the actual position is dirty and 
+			there is no burner present. -->
+		<performgoal name="generate" exclude="never" retrydelay="5000">
+			<creationcondition language="jcl">
+				$beliefbase.has_discussions
+			</creationcondition>
+		</performgoal>
+
+
+	</goals>
+
+	<!-- Descrevem como as ações do agente se processam. São selecionados de 
+		acordo com a ocorrência de eventos e goals. A seleção de plans é feita de 
+		forma automática pelo sistema. No Jadex os plans dividem-se em duas partes: 
+		um head declarado em XML e um body declarado em Java. -->
+	<plans>
+		<!-- Plan which prints out a message and kills the agent. -->
+		<plan name="check_plan">
+			<body impl="CheckDiscussionPlan" />
+			<trigger>
+				<goal ref="check"/>
+			</trigger>
+		</plan>
+		<plan name="generate_plan">
+			<body impl="GenerateThesesPlan" />
+			<trigger>
+				<goal ref="generate" />
+			</trigger>
+		</plan>
+	</plans>
+
+	<properties>
+		<property name="debugging">false</property>
+	</properties>
+
+	<configurations>
+		<configuration name="default">
+			<goals>
+				<!-- Start hello plan when agent is born. -->
+				<initialgoal ref="check" />
+			</goals>
+		</configuration>
+	</configurations>
+
+</agent>
+
