@@ -14,7 +14,7 @@ public class AppStarter {
 	public static void main(String[] args) {
 
 		Starter.main(new String[] { "-gui", "false", "-component",
-				"iaae/agent/creator/AgentCreator.agent.xml" });
+				"iaae/agent/riffle/AgentRiffle.agent.xml" });
 
 	}
 }
