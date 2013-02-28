@@ -32,6 +32,10 @@
 			<facts>((List)$beliefbase.getBelief("settings").getFact().getAnswers())
 			</facts>
 		</beliefset>
+		
+		<belief name="toEvaluate" class="int" exported="true">
+			<fact>2</fact>
+		</belief>
 	</beliefs>
 
 	<!-- Representam os objetivos, motivações, do agente e que irão levar ao 
